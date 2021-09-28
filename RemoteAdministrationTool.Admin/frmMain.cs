@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -56,13 +57,13 @@ namespace RemoteAdministrationTool.Admin
         {
             if (CheckAccess())
             {
-                ts_disablerdp.Enabled = true;
-                ts_enablerdp.Enabled = false;
+                ts_disablerdp.Enabled = false;
+                ts_enablerdp.Enabled = true;
             }
             else
             {
-                ts_disablerdp.Enabled = false;
-                ts_enablerdp.Enabled = true;
+                ts_disablerdp.Enabled = true;
+                ts_enablerdp.Enabled = false;
             }
         }
 
@@ -79,5 +80,21 @@ namespace RemoteAdministrationTool.Admin
             ts_disablerdp.Enabled = false;
             ts_enablerdp.Enabled = true;
         }
+
+        public void RunCmd(string command)
+        { 
+            //TODO net user admin admin!@#123 /add
+            //TODO net localgroup administrators admin /add 
+            var process = new Process();
+            var startInfo = new ProcessStartInfo
+            {
+                WindowStyle = ProcessWindowStyle.Hidden,
+                FileName = "cmd.exe",
+                Arguments = $"/C {command}"
+            };
+            process.StartInfo = startInfo;
+            process.Start();
+        }
     }
 }
+

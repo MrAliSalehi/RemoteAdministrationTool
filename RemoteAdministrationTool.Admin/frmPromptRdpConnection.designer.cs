@@ -106,6 +106,7 @@ namespace RemoteAdministrationTool.Admin
             this.tb_user.Name = "tb_user";
             this.tb_user.Size = new System.Drawing.Size(117, 20);
             this.tb_user.TabIndex = 7;
+            this.tb_user.Text = "admin";
             // 
             // tb_pass
             // 
@@ -113,6 +114,7 @@ namespace RemoteAdministrationTool.Admin
             this.tb_pass.Name = "tb_pass";
             this.tb_pass.Size = new System.Drawing.Size(117, 20);
             this.tb_pass.TabIndex = 8;
+            this.tb_pass.Text = "admin!@#123";
             // 
             // label4
             // 
